@@ -14,7 +14,7 @@
             <img src="../Globales/img/GriGori.png" alt="logo" class="imglogo">
         </div>
         <div class="titulo-sitio">
-            <h2>GRIGORI</h2>
+            <h2>GRIGORI. Sistema de detecci&oacute;n de casos de ausentismo</h2>
         </div>
     </header>
     <aside>
@@ -25,28 +25,28 @@
                 </a>
             </li>
             <li>
-                <a href="?pag=profesores">Gesti&oacute;n profesores</a>
+                <a href="?pag=Profesores">Gesti&oacute;n profesores</a>
             </li>
             <li>
-                <a href="?pag=turnos">Gesti&oacute;n turnos</a>
+                <a href="?pag=Turnos">Gesti&oacute;n turnos</a>
             </li>
             <li>
-                <a href="?pag=semestres">Gesti&oacute;n semestres</a>
+                <a href="?pag=Semestres">Gesti&oacute;n semestres</a>
             </li>
             <li>
-                <a href="?pag=grupos">Gesti&oacute;n grupos</a>
+                <a href="?pag=Grupos">Gesti&oacute;n grupos</a>
             </li>
             <li>
-                <a href="?pag=clases">Gesti&oacute;n clases</a>
+                <a href="?pag=Clases">Gesti&oacute;n clases</a>
             </li>
             <li>
-                <a href="?pag=horarios">Gesti&oacute;n horarios</a>
+                <a href="?pag=Horarios">Gesti&oacute;n horarios</a>
             </li>
             <li>
-                <a href="?pag=materias">Gesti&oacute;n materias</a>
+                <a href="?pag=Materias">Gesti&oacute;n materias</a>
             </li>
             <li>
-                <a href="?pag=especialidades">Gesti&oacute;n especialidades</a>
+                <a href="?pag=Especialidades">Gesti&oacute;n especialidades</a>
             </li>
             <li>
                 <a href="?pag=lista_manual">Pase de lista manual</a>
@@ -61,7 +61,7 @@
                 <a href="../Funciones/Login/logout.php">Cerrar sesi&oacute;n</a>
             </li>
         </ul>
-    </aside>
+    </aside><a href="../Gestion_turnos/"></a>
     <article>
         <?php
             if(isset($_GET['pag'])!=0){
@@ -69,8 +69,17 @@
                     case 'lista_manual':
                         include("../Pase_lista/manual.php");
                         break;
+                    case 'reportes':
+                        include("../Reportes/generar.php");
+                        break;
+                    case 'alertas':
+                        include("../Alertas/index.php");
+                        break;
+                    case 'crear_alumno':
+                        include("../Gestion/Alumnos/crear_alumno.php");
+                        break;
                     default:
-                        echo "Nada";
+                        include("../Gestion/".$_GET['pag']."/index.php");
                         break;
                 }
             }
